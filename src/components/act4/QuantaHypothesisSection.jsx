@@ -1,62 +1,87 @@
-// src/components/act4/QuantaHypothesisSection.jsx
-
-import { useState } from 'react';
-import { ArrowRight, Zap, Lightbulb, BarChart2 } from 'lucide-react';
+// src/components/act4/QuantumHypothesisSection.jsx
+import { ArrowRight, Zap } from 'lucide-react';
 import { Equation } from '../Equation';
-import { QuantaEnergyChart } from './QuantaEnergyChart'; // Importando o novo componente
 
-export function QuantaHypothesisSection({ onNavigate }) {
-  // Novo estado para controlar a visibilidade da simulação
-  const [showQuantaDemo, setShowQuantaDemo] = useState(false);
-
+export function QuantumHypothesisSection({ onNavigate }) {
   return (
     <div className="space-y-12 animate-in fade-in duration-700">
       <div className="text-center">
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Quebrando a Regra da Continuidade</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">A Hipótese dos Quanta</h2>
         <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-          Para que a fórmula funcionasse, Planck percebeu que a energia das ondas de alta frequência deveria tender a zero. Para conseguir isso, ele fez algo que ia contra toda a intuição da física clássica.
+          Uma ideia tão radical que levou décadas para ser aceita
         </p>
       </div>
 
-      <div className="bg-black/40 border border-white/10 rounded-lg p-8">
-        <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-          <Zap className="text-yellow-400" /> Analogia: A Máquina de Refrigerantes de Energia
-        </h3>
-        <p className="text-lg text-gray-300 leading-relaxed">
-          A teoria clássica via a energia como um buffet livre. Planck trocou o buffet por uma <strong>máquina de vendas automática</strong>. Para "comprar" uma onda de frequência <Equation displayMode={false}>\nu</Equation>, você precisava da moeda exata, <Equation displayMode={false}>\Delta\epsilon = h\nu</Equation>.
+      {/* Seção: O Que é um Quantum */}
+      <div className="bg-gradient-to-r from-red-900/40 to-orange-900/40 border border-red-500/30 rounded-lg p-8">
+        <h3 className="text-2xl font-bold text-white mb-4">O Que é um Quantum?</h3>
+        <p className="text-gray-300 text-lg leading-relaxed mb-4">
+          Um <strong className="text-red-300">quantum</strong> (plural: quanta) é a menor quantidade possível de uma quantidade física que pode existir de forma independente. Para a radiação eletromagnética, um quantum é um "pacote" de energia indivisível.
         </p>
-      </div>
-      
-      {/* Botão e Simulação Interativa (Nova Seção) */}
-      <div className="bg-black/40 border border-white/10 rounded-lg p-8">
-        <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-          <BarChart2 className="text-purple-400" /> Visualizando os Quanta de Energia
-        </h3>
-        <p className="text-lg text-gray-300 leading-relaxed mb-6">
-          A diferença entre a energia contínua (uma rampa) e a energia quantizada (degraus) é a chave da descoberta de Planck.
+        <p className="text-gray-300 text-lg leading-relaxed">
+          A ideia é que a radiação não é emitida continuamente, mas em pulsos discretos. Cada pulso tem uma energia bem definida que depende da frequência.
         </p>
-        <button 
-          onClick={() => setShowQuantaDemo(!showQuantaDemo)}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold transition-all"
-        >
-          {showQuantaDemo ? "Ocultar" : "Mostrar"} Simulação
-        </button>
-        {/* Renderização condicional do novo componente de gráfico */}
-        {showQuantaDemo && <QuantaEnergyChart />}
       </div>
 
-      <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-8 text-center">
-        <p className="text-xl text-green-200 leading-relaxed">
-          Ondas de alta frequência são "caras" e exigem pacotes de energia muito grandes. Como não há energia suficiente no sistema para criar muitos pacotes "caros", as vibrações ultravioletas são <strong>"congeladas"</strong>, resolvendo a catástrofe.
+      {/* Seção: Implicações Profundas */}
+      <div className="bg-gradient-to-r from-purple-900/40 to-indigo-900/40 border border-purple-500/30 rounded-lg p-8">
+        <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+          <Zap className="w-6 h-6 text-purple-400" />
+          Implicações Profundas
+        </h3>
+        <p className="text-gray-300 text-lg leading-relaxed mb-4">
+          A hipótese dos quanta tinha implicações que iam muito além do problema da radiação térmica:
+        </p>
+        <div className="space-y-4 mt-4">
+          <div className="bg-black/40 border border-purple-500/20 rounded-lg p-4">
+            <p className="text-purple-300 font-semibold mb-2">Desafia a Intuição</p>
+            <p className="text-gray-300">
+              Nossa experiência cotidiana nos diz que a energia é contínua. Podemos derramar qualquer quantidade de água, desde uma gota até um oceano. Mas a natureza, em nível microscópico, não funciona assim.
+            </p>
+          </div>
+          <div className="bg-black/40 border border-purple-500/20 rounded-lg p-4">
+            <p className="text-purple-300 font-semibold mb-2">Questiona a Realidade</p>
+            <p className="text-gray-300">
+              Se a energia é quantizada, o que isso significa para a natureza fundamental da realidade? Como a matéria absorve e emite energia em pacotes?
+            </p>
+          </div>
+          <div className="bg-black/40 border border-purple-500/20 rounded-lg p-4">
+            <p className="text-purple-300 font-semibold mb-2">Abre Novas Perguntas</p>
+            <p className="text-gray-300">
+              Se a radiação é quantizada, será que a matéria também é? Será que tudo no universo é feito de pacotes discretos?
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Seção: Aceitação Lenta */}
+      <div className="bg-gradient-to-r from-blue-900/40 to-cyan-900/40 border border-blue-500/30 rounded-lg p-8">
+        <h3 className="text-2xl font-bold text-white mb-4">Uma Aceitação Lenta</h3>
+        <p className="text-gray-300 text-lg leading-relaxed mb-4">
+          Curiosamente, nem mesmo Planck acreditava completamente em sua própria hipótese! Ele via a quantização como um truque matemático para fazer os números funcionarem, não como uma descrição da realidade física.
+        </p>
+        <p className="text-gray-300 text-lg leading-relaxed mb-4">
+          Levou muitos anos e muitas evidências experimentais para que a comunidade científica aceitasse que a quantização era real. Cientistas como Albert Einstein, Niels Bohr e Werner Heisenberg tiveram que desenvolver essa ideia e mostrar suas implicações.
+        </p>
+        <p className="text-gray-300 text-lg leading-relaxed">
+          Hoje, a quantização é um dos pilares da mecânica quântica e um dos conceitos mais fundamentais da física moderna.
+        </p>
+      </div>
+
+      {/* Seção: O Prêmio Nobel */}
+      <div className="bg-gradient-to-r from-yellow-900/40 to-orange-900/40 border border-yellow-500/30 rounded-lg p-8">
+        <h3 className="text-2xl font-bold text-white mb-4">Reconhecimento</h3>
+        <p className="text-gray-300 text-lg leading-relaxed">
+          Max Planck recebeu o Prêmio Nobel de Física em 1918 "em reconhecimento aos serviços prestados ao avanço da física pela descoberta dos quanta de energia". Essa descoberta mudou para sempre a forma como entendemos o universo.
         </p>
       </div>
 
       <div className="text-center pt-8">
         <button 
           onClick={onNavigate} 
-          className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:scale-105 transition-transform text-white px-8 py-3 text-lg font-semibold rounded-lg shadow-lg shadow-purple-500/30"
+          className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-500 hover:scale-105 transition-transform text-white px-8 py-3 text-lg font-semibold rounded-lg shadow-lg shadow-indigo-500/30"
         >
-          Ver a Fórmula da Solução <ArrowRight className="w-5 h-5" />
+          Explorar a Fórmula de Planck <ArrowRight className="w-5 h-5" />
         </button>
       </div>
     </div>
