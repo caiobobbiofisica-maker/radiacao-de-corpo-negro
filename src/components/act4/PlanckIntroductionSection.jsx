@@ -1,8 +1,8 @@
-// src/components/act4/PlanckIntroSection.jsx
+// src/components/act4/PlanckIntroductionSection.jsx
 import { ArrowRight, Lightbulb } from 'lucide-react';
 import { Equation } from '../Equation';
 
-export function PlanckIntroSection({ onNavigate }) {
+export function PlanckIntroductionSection({ onNavigate }) {
   return (
     <div className="space-y-12 animate-in fade-in duration-700">
       <div className="text-center">
