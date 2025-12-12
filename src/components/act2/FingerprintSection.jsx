@@ -1,49 +1,70 @@
 // src/components/act2/FingerprintSection.jsx
-import { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
-
-const generateBlackBodyData = (temp) => {
-  const data = []; const h = 6.626e-34; const c = 3e8; const k = 1.381e-23;
-  for (let wl = 200; wl <= 4000; wl += 50) {
-    const lambda = wl * 1e-9;
-    const intensity = (2 * h * c * c) / (Math.pow(lambda, 5) * (Math.exp((h * c) / (lambda * k * temp)) - 1));
-    data.push({ wavelength: wl, intensity: intensity / 1e13 });
-  }
-  return data;
-};
+import { ArrowRight, Fingerprint } from 'lucide-react';
+import { Equation } from '../Equation';
 
 export function FingerprintSection({ onNavigate }) {
-  const [temperature, setTemperature] = useState(4000);
-  const blackBodyData = generateBlackBodyData(temperature);
-  const peakWavelength = 2.898e6 / temperature;
-
   return (
-    <div className="space-y-8 animate-in fade-in duration-700">
-      <div className="bg-black/40 border border-white/10 rounded-lg p-6 space-y-6">
-        <div className="flex justify-between items-center">
-            <h3 className="text-xl font-bold text-white">🌡️ O Espectro do Corpo Negro</h3>
-            <span className="text-orange-400 font-bold text-xl">{temperature}K</span>
-        </div>
-        <input type="range" min="2000" max="8000" step="100" value={temperature} onChange={(e) => setTemperature(parseInt(e.target.value))} className="w-full h-3 bg-gray-700 rounded-lg appearance-none cursor-pointer"/>
-        <div className="h-80 w-full bg-black/20 p-4 rounded-lg">
-          <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={blackBodyData} margin={{ top: 5, right: 20, left: -10, bottom: 20 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-              <XAxis dataKey="wavelength" unit="nm" stroke="#9CA3AF" label={{ value: 'Comprimento de Onda (nm)', position: 'insideBottom', offset: -10, fill: '#9CA3AF' }} />
-              <YAxis stroke="#9CA3AF" />
-              <Tooltip cursor={{ stroke: '#f59e0b' }} contentStyle={{ backgroundColor: '#1F2937', border: '1px solid #374151', color: '#f3f4f6' }}/>
-              <Area type="monotone" dataKey="intensity" stroke="#f97316" fill="#fb923c" />
-              <ReferenceLine x={peakWavelength} stroke="#38bdf8" strokeWidth={2} strokeDasharray="4 4" />
-            </AreaChart>
-          </ResponsiveContainer>
-        </div>
-        <p className="text-center text-sm text-gray-400">Pico de emissão (linha azul): <span className="text-sky-400 font-medium">{peakWavelength.toFixed(0)} nm</span></p>
+    <div className="space-y-12 animate-in fade-in duration-700">
+      <div className="text-center">
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">A Impressão Digital da Radiação</h2>
+        <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          Cada temperatura tem um "espectro" único - como uma impressão digital
+        </p>
       </div>
 
-       <div className="text-center pt-4">
-        <button onClick={onNavigate} className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-red-500 to-orange-500 hover:scale-105 transition-transform text-white px-8 py-3 text-lg font-semibold rounded-lg shadow-lg shadow-red-500/30">
-          Entender as Regras do Jogo <ArrowRight className="w-5 h-5 ml-2" />
+      {/* Introdução */}
+      <div className="bg-black/40 border border-white/10 rounded-lg p-8">
+        <p className="text-gray-300 text-lg leading-relaxed">
+          Mas as duas regras que descobrimos (brilho total e cor) são apenas a ponta do iceberg. O verdadeiro mistério está em como a energia se distribui em cada comprimento de onda. Cada temperatura produz um padrão único e característico - como uma impressão digital da radiação.
+        </p>
+      </div>
+
+      {/* Seção: O Espectro Completo */}
+      <div className="bg-gradient-to-r from-purple-900/40 to-pink-900/40 border border-purple-500/30 rounded-lg p-8">
+        <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+          <Fingerprint className="w-6 h-6 text-pink-400" />
+          O Espectro Completo
+        </h3>
+        <p className="text-gray-300 text-lg leading-relaxed mb-4">
+          Se você medir a intensidade de radiação em cada comprimento de onda (desde o infravermelho até o ultravioleta), descobrirá que:
+        </p>
+        <ul className="text-gray-300 text-lg leading-relaxed space-y-3 list-disc list-inside">
+          <li>Em comprimentos de onda muito curtos (ultravioleta): pouca energia</li>
+          <li>Em comprimentos de onda intermediários: energia máxima em um pico característico</li>
+          <li>Em comprimentos de onda muito longos (infravermelho): energia decaindo gradualmente</li>
+        </ul>
+      </div>
+
+      {/* Seção: A Curva Característica */}
+      <div className="bg-black/40 border border-white/10 rounded-lg p-8">
+        <h3 className="text-2xl font-bold text-white mb-4">A Curva Característica</h3>
+        <p className="text-gray-300 text-lg leading-relaxed mb-4">
+          Essa distribuição forma uma curva suave e característica. O pico dessa curva (onde a energia é máxima) ocorre em um comprimento de onda que depende da temperatura - exatamente como prevê a Lei de Wien que aprendemos!
+        </p>
+        <div className="bg-indigo-900/20 border border-indigo-500/30 rounded-lg p-6">
+          <p className="text-indigo-200 text-lg leading-relaxed">
+            <strong>Observação Crucial:</strong> Essa curva é universal! Não importa se você está olhando para o filamento de uma lâmpada, a superfície do Sol ou uma estrela distante - a forma da curva é sempre a mesma, apenas mudando de posição e altura com a temperatura.
+          </p>
+        </div>
+      </div>
+
+      {/* Seção: Os Dados Experimentais */}
+      <div className="bg-gradient-to-r from-orange-900/40 to-red-900/40 border border-orange-500/30 rounded-lg p-8">
+        <h3 className="text-2xl font-bold text-white mb-4">Os Dados Experimentais</h3>
+        <p className="text-gray-300 text-lg leading-relaxed mb-4">
+          No final do século XIX, os físicos conseguiram medir essa curva com precisão. Os dados eram claros e reproduzíveis. Agora havia um novo desafio: encontrar uma fórmula matemática que descrevesse essa curva com precisão.
+        </p>
+        <p className="text-gray-300 text-lg leading-relaxed">
+          A física clássica tinha uma previsão para essa curva, mas havia um problema... um problema tão grave que ficou conhecido como a "Catástrofe do Ultravioleta".
+        </p>
+      </div>
+
+      <div className="text-center pt-8">
+        <button 
+          onClick={onNavigate} 
+          className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-red-500 to-pink-500 hover:scale-105 transition-transform text-white px-8 py-3 text-lg font-semibold rounded-lg shadow-lg shadow-red-500/30"
+        >
+          Descobrir a Catástrofe <ArrowRight className="w-5 h-5" />
         </button>
       </div>
     </div>
