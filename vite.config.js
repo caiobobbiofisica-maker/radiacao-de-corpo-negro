@@ -5,7 +5,7 @@ import path from 'path'
 //https://github.com/caiobobbiofisica-maker/radiacao-de-corpo-negro.git
 export default defineConfig({
   plugins: [react()],
-  base: '/radiacao-de-corpo-negro/',
+  base: '/',
   resolve: { 
   alias: { "@": path.resolve(__dirname, "./src") } }
 })
