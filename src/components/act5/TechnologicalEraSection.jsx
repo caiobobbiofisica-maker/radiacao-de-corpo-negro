@@ -24,67 +24,59 @@ export function TechnologicalEraSection({ onNavigate }) {
           <Zap className="w-6 h-6 text-yellow-400" />
           Tecnologias Baseadas em Mecânica Quântica
         </h3>
-
+        
         <div className="space-y-6 mt-6">
-          {/* Transistores */}
+          {/* Transistores e Semicondutores */}
           <div className="bg-black/40 border border-yellow-500/20 rounded-lg p-4">
-            <h4 className="text-lg font-bold text-yellow-300 mb-2">Transistores e Semicondutores</h4>
+            <p className="text-yellow-300 font-semibold mb-2">🖥️ Transistores e Semicondutores</p>
             <p className="text-gray-300">
-              O transistor, inventado em 1947, é baseado na mecânica quântica dos semicondutores. Todos os computadores, smartphones e dispositivos eletrônicos modernos usam bilhões de transistores. Sem a compreensão da mecânica quântica, essa tecnologia seria impossível.
+              Os transistores funcionam através de tunelamento quântico e quantização de níveis de energia. Sem eles, não teríamos computadores, smartphones ou qualquer eletrônica moderna.
             </p>
           </div>
 
           {/* Lasers */}
           <div className="bg-black/40 border border-yellow-500/20 rounded-lg p-4">
-            <h4 className="text-lg font-bold text-yellow-300 mb-2">Lasers</h4>
+            <p className="text-yellow-300 font-semibold mb-2">🔴 Lasers</p>
             <p className="text-gray-300">
-              Os lasers funcionam através da emissão estimulada de radiação, um processo completamente quântico. Lasers são usados em cirurgias, comunicações ópticas, leitura de CDs/DVDs, impressoras, e muitas outras aplicações.
+              Os lasers funcionam através da emissão estimulada de radiação, um processo quântico. Usados em cirurgias, comunicações, leitura de dados de CDs/DVDs, e muito mais.
             </p>
           </div>
 
           {/* LEDs */}
           <div className="bg-black/40 border border-yellow-500/20 rounded-lg p-4">
-            <h4 className="text-lg font-bold text-yellow-300 mb-2">Diodos Emissores de Luz (LEDs)</h4>
+            <p className="text-yellow-300 font-semibold mb-2">💡 LEDs (Diodos Emissores de Luz)</p>
             <p className="text-gray-300">
-              Os LEDs funcionam através da recombinação de elétrons e buracos em semicondutores, um processo quântico. Eles são muito mais eficientes que lâmpadas incandescentes e estão revolucionando a iluminação.
+              Os LEDs funcionam através da recombinação de elétrons e buracos em semicondutores, emitindo fótons. São muito mais eficientes que lâmpadas incandescentes.
             </p>
           </div>
 
           {/* Células Solares */}
           <div className="bg-black/40 border border-yellow-500/20 rounded-lg p-4">
-            <h4 className="text-lg font-bold text-yellow-300 mb-2">Células Solares e Painéis Fotovoltaicos</h4>
+            <p className="text-yellow-300 font-semibold mb-2">☀️ Células Solares</p>
             <p className="text-gray-300">
-              As células solares convertem luz em eletricidade através do efeito fotoelétrico, o mesmo fenômeno que Einstein explicou usando a mecânica quântica. Essa tecnologia é crucial para a energia renovável.
+              As células solares convertem fótons em eletricidade através do efeito fotoelétrico, um processo quântico. São fundamentais para energia renovável.
             </p>
           </div>
 
           {/* Ressonância Magnética */}
           <div className="bg-black/40 border border-yellow-500/20 rounded-lg p-4">
-            <h4 className="text-lg font-bold text-yellow-300 mb-2">Ressonância Magnética (RM)</h4>
+            <p className="text-yellow-300 font-semibold mb-2">🏥 Ressonância Magnética (RM)</p>
             <p className="text-gray-300">
-              A RM usa propriedades quânticas de núcleos atômicos para criar imagens do corpo humano. É uma ferramenta médica essencial para diagnóstico, e sua operação é baseada completamente em mecânica quântica.
-            </p>
-          </div>
-
-          {/* Microscópios Eletrônicos */}
-          <div className="bg-black/40 border border-yellow-500/20 rounded-lg p-4">
-            <h4 className="text-lg font-bold text-yellow-300 mb-2">Microscópios Eletrônicos</h4>
-            <p className="text-gray-300">
-              Os microscópios eletrônicos usam o comportamento ondulatório dos elétrons (proposto por de Broglie) para alcançar resoluções muito maiores que microscópios ópticos. Eles são essenciais para pesquisa em biologia e nanotecnologia.
+              A RM funciona através da manipulação de spins nucleares, uma propriedade quântica. É uma ferramenta essencial para diagnóstico médico.
             </p>
           </div>
 
           {/* GPS */}
           <div className="bg-black/40 border border-yellow-500/20 rounded-lg p-4">
-            <h4 className="text-lg font-bold text-yellow-300 mb-2">GPS (Sistema de Posicionamento Global)</h4>
+            <p className="text-yellow-300 font-semibold mb-2">🛰️ GPS (Sistema de Posicionamento Global)</p>
             <p className="text-gray-300">
-              O GPS depende de relógios atômicos extremamente precisos, que funcionam através de transições quânticas em átomos. Sem a mecânica quântica, o GPS não seria possível.
+              O GPS depende de relógios atômicos que funcionam através de transições quânticas. Sem eles, a precisão do GPS seria impossível.
             </p>
           </div>
 
           {/* Câmeras Digitais */}
           <div className="bg-black/40 border border-yellow-500/20 rounded-lg p-4">
-            <h4 className="text-lg font-bold text-yellow-300 mb-2">Câmeras Digitais</h4>
+            <p className="text-yellow-300 font-semibold mb-2">📷 Câmeras Digitais</p>
             <p className="text-gray-300">
               As câmeras digitais usam sensores CCD ou CMOS que funcionam através do efeito fotoelétrico. Quando a luz bate no sensor, elétrons são liberados (um processo quântico), criando a imagem digital.
             </p>
@@ -102,7 +94,7 @@ export function TechnologicalEraSection({ onNavigate }) {
 
       <div className="text-center pt-8">
         <button 
-          onClick={onNavigate} 
+          onClick={() => onNavigate()}
           className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:scale-105 transition-transform text-white px-8 py-3 text-lg font-semibold rounded-lg shadow-lg shadow-yellow-500/30"
         >
           Explorar o Futuro Quântico <ArrowRight className="w-5 h-5" />

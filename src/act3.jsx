@@ -80,7 +80,10 @@ export default function Act3({ onNavigate, actsData }) {
           <UVCatastropheSection onNavigate={() => setCurrentSection(SECTIONS.CRISIS)} />
         )}
         {currentSection === SECTIONS.CRISIS && (
-          <PhysicsCrisisSection onNavigateBack={() => setCurrentSection(SECTIONS.CATASTROPHE)} />
+          <PhysicsCrisisSection 
+  onNavigateBack={() => setCurrentSection(SECTIONS.CATASTROPHE)} 
+  onNavigate={onNavigate}
+/>
         )}
       </main>
     </div>

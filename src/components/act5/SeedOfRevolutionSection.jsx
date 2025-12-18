@@ -1,6 +1,5 @@
 // src/components/act5/SeedOfRevolutionSection.jsx
 import { ArrowRight, Sprout } from 'lucide-react';
-import { Equation } from '../Equation';
 
 export function SeedOfRevolutionSection({ onNavigate }) {
   return (
@@ -25,7 +24,7 @@ export function SeedOfRevolutionSection({ onNavigate }) {
           <p className="text-gray-300 text-lg mb-4">
             "A energia é emitida e absorvida em quantidades discretas chamadas quanta, cuja magnitude é proporcional à frequência da radiação."
           </p>
-          <Equation>{String.raw`E = h\nu`}</Equation>
+          <p className="text-gray-300 text-lg mb-3">E = hν</p>
           <p className="text-gray-400 mt-4 text-sm">
             onde h = 6,626 × 10⁻³⁴ J·s (constante de Planck)
           </p>
@@ -77,7 +76,7 @@ export function SeedOfRevolutionSection({ onNavigate }) {
 
       <div className="text-center pt-8">
         <button 
-          onClick={onNavigate} 
+          onClick={() => onNavigate()}
           className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:scale-105 transition-transform text-white px-8 py-3 text-lg font-semibold rounded-lg shadow-lg shadow-green-500/30"
         >
           Explorar o Mundo Quântico <ArrowRight className="w-5 h-5" />

@@ -78,7 +78,7 @@ export default function Act4({ onNavigate, actsData }) {
         {currentSection === SECTIONS.INTRO && <PlanckIntroductionSection onNavigate={() => setCurrentSection(SECTIONS.HYPOTHESIS)} />}
         {currentSection === SECTIONS.HYPOTHESIS && <QuantaHypothesisSection onNavigate={() => setCurrentSection(SECTIONS.FORMULA)} />}
         {currentSection === SECTIONS.FORMULA && <PlanckFormulaSection onNavigate={() => setCurrentSection(SECTIONS.REVOLUTION)} />}
-        {currentSection === SECTIONS.REVOLUTION && <QuantumRevolutionSection onNavigateBack={() => setCurrentSection(SECTIONS.FORMULA)} />}
+        {currentSection === SECTIONS.REVOLUTION && <QuantumRevolutionSection onNavigateBack={() => setCurrentSection(SECTIONS.FORMULA)} onNavigate={() => onNavigate('ACT_5')} />}
       </main>
     </div>
   );

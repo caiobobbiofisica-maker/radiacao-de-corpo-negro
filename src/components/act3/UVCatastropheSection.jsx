@@ -1,98 +1,193 @@
 // src/components/act3/UVCatastropheSection.jsx
-import { ArrowRight, AlertTriangle } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowRight, Users, AlertTriangle, HelpCircle, Sigma, Zap } from 'lucide-react';
 import { Equation } from '../Equation';
 
 export function UVCatastropheSection({ onNavigate }) {
+  const [showAnalogy, setShowAnalogy] = useState(true);
+  const [showMath, setShowMath] = useState(false);
+
   return (
     <div className="space-y-12 animate-in fade-in duration-700">
       <div className="text-center">
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">A Catástrofe do Ultravioleta</h2>
         <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-          O problema que revelou os limites da física clássica
+          Como a teoria clássica levou a conclusões absurdas
         </p>
       </div>
 
-      {/* Seção: O Problema */}
+      {/* Seção: O Cenário Clássico */}
+      <div className="bg-gradient-to-r from-blue-900/40 to-indigo-900/40 border border-blue-500/30 rounded-lg p-8">
+        <h3 className="text-2xl font-bold text-white mb-4">O Cenário Clássico</h3>
+        <p className="text-gray-300 text-lg leading-relaxed mb-4">
+          No modelo clássico, a cavidade é um "forno" em equilíbrio térmico. Dentro dela, a energia existe na forma de <strong className="text-blue-300">ondas estacionárias</strong>, chamadas de <strong className="text-blue-300">modos de vibração</strong>. Cada modo é uma forma possível da energia existir ali.
+        </p>
+        <p className="text-gray-300 text-lg leading-relaxed">
+          A regra clássica é o <strong className="text-blue-300">Teorema da Equipartição de Energia</strong>: em equilíbrio térmico, a energia total se distribui <strong>igualmente entre todos os graus de liberdade</strong>. A cada modo, independentemente de sua frequência, cabe uma energia média de <Equation displayMode={false}>{String.raw`k_B T`}</Equation>.
+        </p>
+      </div>
+
+      {/* Analogia da Festa */}
+      <div className="bg-black/40 border border-white/10 rounded-lg p-8">
+        <div className="text-center">
+          <button 
+            onClick={() => setShowAnalogy(!showAnalogy)}
+            className="w-full inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 transition-all text-white px-6 py-3 text-base font-semibold rounded-lg shadow-lg shadow-purple-500/40"
+          >
+            {showAnalogy ? 'Ocultar' : 'Mostrar'} Analogia: A Festa da Energia <Users className="w-5 h-5" />
+          </button>
+        </div>
+
+        {showAnalogy && (
+          <div className="mt-8 bg-purple-900/20 border border-purple-500/30 rounded-lg p-6 space-y-6 animate-in fade-in duration-500">
+            <h3 className="text-xl font-bold text-center text-white mb-6">🎉 A Festa da Energia com Regras Quânticas</h3>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="bg-black/40 border border-purple-500/20 rounded-lg p-4 space-y-3">
+                <h4 className="text-purple-300 font-bold">🏠 A Cavidade = Salão de Festas</h4>
+                <p className="text-gray-300 text-sm">Um salão onde acontece a distribuição de energia entre os convidados (modos).</p>
+              </div>
+              <div className="bg-black/40 border border-purple-500/20 rounded-lg p-4 space-y-3">
+                <h4 className="text-purple-300 font-bold">👥 Modos = Convidados</h4>
+                <p className="text-gray-300 text-sm">Cada modo de vibração é um convidado que recebe uma porção de energia.</p>
+              </div>
+              <div className="bg-black/40 border border-purple-500/20 rounded-lg p-4 space-y-3">
+                <h4 className="text-purple-300 font-bold">🍽️ Energia Térmica = Bandeja de Petiscos</h4>
+                <p className="text-gray-300 text-sm">A energia térmica (kT) é como uma bandeja de petiscos para distribuir.</p>
+              </div>
+              <div className="bg-black/40 border border-purple-500/20 rounded-lg p-4 space-y-3">
+                <h4 className="text-purple-300 font-bold">🤵 Equipartição = Garçom Justo</h4>
+                <p className="text-gray-300 text-sm">O garçom segue a regra: "um petisco para cada convidado, igualmente".</p>
+              </div>
+            </div>
+
+            <div className="bg-red-900/40 border border-red-500/50 rounded-lg p-4">
+              <p className="text-center text-red-300 font-semibold flex items-center justify-center gap-2">
+                <AlertTriangle className="w-5 h-5" />
+                <span><strong>O Problema Catastrófico:</strong> Havia um número <span className="text-yellow-300">infinito</span> de convidados na área das "altas frequências" (ultravioleta). Ao seguir a regra, o garçom teria que distribuir uma quantidade <span className="text-yellow-300">infinita de petiscos!</span></span>
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Seção: O Problema Físico */}
       <div className="bg-gradient-to-r from-red-900/40 to-orange-900/40 border border-red-500/30 rounded-lg p-8">
         <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
           <AlertTriangle className="w-6 h-6 text-red-400" />
-          O Problema Clássico
+          O Problema (Catástrofe do Ultravioleta)
         </h3>
         <p className="text-gray-300 text-lg leading-relaxed mb-4">
-          Quando os físicos aplicaram o Teorema da Equipartição de Energia à radiação térmica, encontraram um resultado perturbador:
+          Há um número <strong className="text-red-300">infinito</strong> de modos de vibração na cavidade, e a quantidade de modos <strong className="text-red-300">cresce rapidamente nas altas frequências</strong> (ultravioleta).
         </p>
-        <div className="bg-black/40 border border-red-500/20 rounded-lg p-6 mt-4">
-          <p className="text-gray-300 text-lg leading-relaxed mb-3">
-            Havia um número <strong className="text-red-300">infinito de modos de vibração</strong> em comprimentos de onda muito curtos (ultravioleta). Se cada modo recebesse uma quantidade igual de energia <Equation displayMode={false}>{String.raw`kT`}</Equation>, então a energia total seria <strong className="text-red-300">infinita</strong>!
-          </p>
-          <p className="text-gray-300 text-lg leading-relaxed">
-            Isso levaria a uma previsão absurda: qualquer objeto aquecido deveria emitir uma quantidade infinita de radiação ultravioleta. Mas experimentalmente, isso não acontecia.
-          </p>
-        </div>
-      </div>
-
-      {/* Seção: As Consequências Absurdas */}
-      <div className="bg-gradient-to-r from-purple-900/40 to-pink-900/40 border border-purple-500/30 rounded-lg p-8">
-        <h3 className="text-2xl font-bold text-white mb-4">Consequências Absurdas da Física Clássica</h3>
         <p className="text-gray-300 text-lg leading-relaxed mb-4">
-          A física clássica previa que todo objeto com temperatura acima do zero absoluto deveria emitir energia em todas as frequências. Como existe um número infinito de frequências altas, a energia total seria infinita. Se essa regra fosse verdadeira, o mundo seria impossível:
+          Se cada modo recebe uma energia média de <Equation displayMode={false}>{String.raw`k_B T`}</Equation>, então a energia total seria:
         </p>
-        <div className="space-y-4 mt-4">
-          <div className="bg-black/40 border border-orange-500/20 rounded-lg p-4">
-            <p className="text-orange-300 font-semibold mb-2">🔥 Uma Vela:</p>
-            <p className="text-gray-300">
-              Ao ser acesa, sua chama quente emitiria energia infinita, incinerando instantaneamente tudo ao seu redor.
-            </p>
-          </div>
-          <div className="bg-black/40 border border-yellow-500/20 rounded-lg p-4">
-            <p className="text-yellow-300 font-semibold mb-2">☀️ Seu Corpo (37°C):</p>
-            <p className="text-gray-300">
-              Mesmo estando "frio", seu corpo estaria liberando radiação infinita, brilhando mais que o Sol e derretendo tudo o que tocasse.
-            </p>
-          </div>
-          <div className="bg-black/40 border border-blue-500/20 rounded-lg p-4">
-            <p className="text-blue-300 font-semibold mb-2">🌍 O Universo:</p>
-            <p className="text-gray-300">
-              Estaria completamente saturado por uma radiação infinita e letal, tornando a formação de estrelas, planetas e a própria vida impossíveis.
-            </p>
-          </div>
+        <div className="bg-black/50 border border-red-500/20 rounded-lg p-4 text-center mb-4">
+          <Equation displayMode={true}>{String.raw`E_{total} = \infty \times k_B T = \infty`}</Equation>
         </div>
-      </div>
-
-      {/* Seção: O Sinal de Alerta */}
-      <div className="bg-gradient-to-r from-indigo-900/40 to-blue-900/40 border border-indigo-500/30 rounded-lg p-8">
-        <h3 className="text-2xl font-bold text-white mb-4">Um Sinal de Alerta</h3>
-        <p className="text-gray-300 text-lg leading-relaxed mb-4">
-          Esse problema ficou conhecido como a <strong className="text-indigo-300">"Catástrofe do Ultravioleta"</strong> (ou "Catástrofe de Rayleigh-Jeans", em homenagem aos físicos que a descreveram). Era um sinal claro de que algo fundamental estava errado com nossa compreensão da física.
-        </p>
         <p className="text-gray-300 text-lg leading-relaxed">
-          A física clássica, que havia funcionado tão bem em tantas situações, tinha um limite. Quando aplicada ao problema da radiação térmica, ela produzia resultados que contradiziam completamente a experiência.
+          Isso significa que qualquer objeto em temperatura finita deveria irradiar uma quantidade <strong className="text-red-300">infinita</strong> de energia! Especialmente na região ultravioleta. Isso é completamente <strong className="text-red-300">absurdo</strong> e contradiz a observação experimental.
         </p>
       </div>
 
-      {/* Seção: A Solução de Planck */}
-      <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border border-green-500/30 rounded-lg p-8">
-        <h3 className="text-2xl font-bold text-white mb-4">A Solução de Planck</h3>
-        <p className="text-gray-300 text-lg leading-relaxed mb-4">
-          Max Planck resolveu esse problema de uma forma revolucionária. Ele propôs que a energia não era contínua, mas sim <strong className="text-green-300">quantizada</strong> - emitida em "pacotes" discretos chamados <strong className="text-green-300">quanta</strong>, cuja energia dependia da frequência:
+      {/* Por que "Catástrofe do Ultravioleta"? */}
+      <div className="bg-black/40 border border-white/10 rounded-lg p-8">
+        <h3 className="text-2xl font-bold text-white mb-4 flex items-center justify-center gap-3">
+          <HelpCircle className="text-indigo-400" /> Por que "Catástrofe do Ultravioleta"?
+        </h3>
+        <p className="text-lg text-gray-300 leading-relaxed text-center mb-4">
+          O termo foi cunhado porque o problema se manifestava principalmente nas <strong className="text-indigo-300">altas frequências</strong> - a região ultravioleta do espectro.
         </p>
-        <div className="bg-black/40 border border-green-500/20 rounded-lg p-6 text-center">
-          <Equation>{String.raw`E = h\nu`}</Equation>
-          <p className="text-gray-400 mt-4 text-sm">
-            onde h é a constante de Planck e ν é a frequência
+        <p className="text-lg text-gray-300 leading-relaxed text-center mb-4">
+          A densidade de energia prevista pela teoria clássica (Lei de Rayleigh-Jeans) contém um termo <Equation displayMode={false}>{String.raw`\nu^2`}</Equation>, que significa: à medida que a frequência aumenta, a densidade de energia prevista <strong className="text-red-400">disparava para o infinito</strong>.
+        </p>
+        <div className="bg-indigo-900/20 border border-indigo-500/30 rounded-lg p-4">
+          <p className="text-center text-indigo-200 font-semibold">
+            Era uma verdadeira "catástrofe" para a física clássica: seus princípios mais fundamentais levavam a conclusões completamente absurdas e contraditórias com a realidade.
           </p>
         </div>
-        <p className="text-gray-300 text-lg leading-relaxed mt-4">
-          Com essa ideia simples mas revolucionária, Planck conseguiu derivar uma fórmula que correspondia perfeitamente aos dados experimentais, resolvendo a catástrofe do ultravioleta e abrindo as portas para a mecânica quântica.
-        </p>
+      </div>
+
+      {/* Seção da Matemática da Catástrofe */}
+      <div className="bg-black/40 border border-white/10 rounded-lg p-8">
+        <button 
+          onClick={() => setShowMath(!showMath)}
+          className={`w-full inline-flex items-center justify-center gap-2 text-white px-6 py-3 text-base font-semibold rounded-lg shadow-lg transition-all ${
+            showMath 
+            ? 'bg-red-600 hover:bg-red-700 shadow-red-500/40' 
+            : 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-500/40'
+          }`}
+        >
+          {showMath ? 'Ocultar' : 'Mostrar'} a Matemática da Catástrofe <Sigma className="w-5 h-5" />
+        </button>
+
+        {showMath && (
+          <div className="mt-8 space-y-6 animate-in fade-in duration-500">
+            {/* Card 1: Lei de Rayleigh-Jeans */}
+            <div className="bg-gray-800/50 p-6 rounded-lg">
+              <h4 className="text-lg font-bold text-white text-center mb-4">Lei de Rayleigh-Jeans (Clássica)</h4>
+              <div className="text-center mb-4">
+                <Equation displayMode={true}>{String.raw`\rho_T(\nu) = \frac{8\pi k_B T}{c^3} \nu^2`}</Equation>
+              </div>
+              <p className="text-sm text-gray-300 text-center">
+                A intensidade de radiação cresce com o <strong className="text-red-400">quadrado da frequência</strong> (<Equation displayMode={false}>{String.raw`\nu^2`}</Equation>). Isso é o problema!
+              </p>
+            </div>
+
+            {/* Card 2: Integração */}
+            <div className="bg-gray-800/50 p-6 rounded-lg">
+              <h4 className="text-lg font-bold text-white text-center mb-4">Energia Total (Integração)</h4>
+              <div className="text-center mb-4">
+                <Equation displayMode={true}>{String.raw`E = \int_0^\infty \rho_T(\nu) \,d\nu = \int_0^\infty \frac{8\pi k_B T}{c^3} \nu^2 \,d\nu`}</Equation>
+              </div>
+              <p className="text-sm text-gray-300 text-center">
+                Integrando <Equation displayMode={false}>{String.raw`\nu^2`}</Equation> de zero até <strong className="text-yellow-400">infinito...</strong>
+              </p>
+            </div>
+
+            {/* Card 3: Resultado */}
+            <div className="bg-red-900/40 border border-red-500/30 p-6 rounded-lg">
+              <h4 className="text-lg font-bold text-white text-center mb-4">O Resultado Absurdo</h4>
+              <div className="text-center mb-4 text-4xl">
+                <Equation displayMode={true}>{String.raw`E = \infty`}</Equation>
+              </div>
+              <p className="text-sm text-gray-300 text-center">
+                <strong className="text-yellow-300">Energia infinita!</strong> Qualquer objeto aquecido deveria brilhar com intensidade infinita no ultravioleta. Isso nunca foi observado na natureza!
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Consequências Absurdas */}
+      <div className="bg-black/40 border border-white/10 rounded-lg p-8">
+        <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+          <Zap className="w-6 h-6 text-yellow-400" />
+          Consequências Absurdas
+        </h3>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-red-900/40 border border-red-500/30 rounded-lg p-4 text-center">
+            <p className="text-red-300 font-bold mb-2">🔥 Uma Vela</p>
+            <p className="text-gray-300 text-sm">Deveria emitir energia infinita e nos incinerizaria instantaneamente.</p>
+          </div>
+          <div className="bg-red-900/40 border border-red-500/30 rounded-lg p-4 text-center">
+            <p className="text-red-300 font-bold mb-2">☀️ Seu Corpo (37°C)</p>
+            <p className="text-gray-300 text-sm">Deveria brilhar como o Sol derretendo tudo ao redor.</p>
+          </div>
+          <div className="bg-red-900/40 border border-red-500/30 rounded-lg p-4 text-center">
+            <p className="text-red-300 font-bold mb-2">🌍 O Universo</p>
+            <p className="text-gray-300 text-sm">Deveria estar completamente em chamas com radiação ultravioleta.</p>
+          </div>
+        </div>
       </div>
 
       <div className="text-center pt-8">
         <button 
-          onClick={onNavigate} 
-          className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:scale-105 transition-transform text-white px-8 py-3 text-lg font-semibold rounded-lg shadow-lg shadow-purple-500/30"
+          onClick={() => onNavigate('ACT_3_CRISIS')}
+          className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-red-500 to-purple-500 hover:scale-105 transition-transform text-white px-8 py-3 text-lg font-semibold rounded-lg shadow-lg shadow-red-500/30"
         >
-          Explorar a Crise da Física <ArrowRight className="w-5 h-5" />
+          Ver a Crise da Física <ArrowRight className="w-5 h-5" />
         </button>
       </div>
     </div>

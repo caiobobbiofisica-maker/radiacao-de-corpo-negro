@@ -1,6 +1,5 @@
 // src/components/act1/BlackBodyIdealSection.jsx
 import { ArrowRight, BookOpen } from 'lucide-react';
-import { Equation } from '../Equation';
 
 export function BlackBodyIdealSection({ onNavigate }) {
   return (
@@ -19,37 +18,43 @@ export function BlackBodyIdealSection({ onNavigate }) {
           Corpos diferentes, como o carvão e o tungstênio, emitem radiação de maneiras distintas: cada material absorve e reflete parte da luz do ambiente de forma particular. Para compreender as leis universais que regem a radiação térmica — aquelas que não dependem do material — os físicos conceberam um modelo ideal: o <strong className="text-cyan-300">emissor perfeito, ou corpo negro</strong>.
         </p>
         <p className="text-gray-300 text-lg leading-relaxed">
-          Esse corpo ideal é definido como aquele que absorve toda a radiação incidente e cuja emissão depende apenas da temperatura, não da composição. O conceito permitiu formular as leis fundamentais da radiação térmica, abrindo caminho para a física quântica. Apesar do nome, o corpo negro não precisa ser literalmente preto; sua aparência varia com a temperatura.
+          Um corpo negro é um objeto teórico que absorve toda a radiação que incide sobre ele (não reflete nada) e emite radiação térmica de forma perfeitamente uniforme em todas as direções.
         </p>
       </div>
 
-      {/* Seção: As Duas Propriedades Fundamentais */}
-      <div className="bg-black/40 border border-white/10 rounded-lg p-8">
-        <h3 className="text-2xl font-bold text-white mb-6 text-center">As Duas Propriedades Fundamentais</h3>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-purple-900/30 border border-purple-500/30 rounded-lg p-6">
-            <h4 className="text-xl font-bold text-purple-300 mb-3">Propriedade 1</h4>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              Ele absorve toda a radiação que incide sobre ele, sem refletir absolutamente nada.
+      {/* Seção: Propriedades do Corpo Negro */}
+      <div className="bg-gradient-to-r from-purple-900/40 to-indigo-900/40 border border-purple-500/30 rounded-lg p-8">
+        <h3 className="text-2xl font-bold text-white mb-4">Propriedades do Corpo Negro</h3>
+        <div className="space-y-4 mt-4">
+          <div className="bg-black/40 border border-purple-500/20 rounded-lg p-4">
+            <p className="text-purple-300 font-semibold mb-2">Absorção Perfeita</p>
+            <p className="text-gray-300">
+              Absorve 100% da radiação que incide sobre ele, independentemente da frequência ou ângulo de incidência.
             </p>
           </div>
-          <div className="bg-indigo-900/30 border border-indigo-500/30 rounded-lg p-6">
-            <h4 className="text-xl font-bold text-indigo-300 mb-3">Propriedade 2</h4>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              A radiação que ele emite depende apenas e unicamente de sua temperatura, e não do material de que é feito.
+          <div className="bg-black/40 border border-purple-500/20 rounded-lg p-4">
+            <p className="text-purple-300 font-semibold mb-2">Emissão Uniforme</p>
+            <p className="text-gray-300">
+              Emite radiação uniformemente em todas as direções, sem preferência por qualquer direção particular.
+            </p>
+          </div>
+          <div className="bg-black/40 border border-purple-500/20 rounded-lg p-4">
+            <p className="text-purple-300 font-semibold mb-2">Espectro Universal</p>
+            <p className="text-gray-300">
+              O espectro de radiação depende apenas da temperatura, não do material ou da forma do objeto.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Seção: O Ponto-Chave */}
-      <div className="bg-gradient-to-r from-yellow-900/40 to-orange-900/40 border border-yellow-500/30 rounded-lg p-8">
-        <h3 className="text-2xl font-bold text-white mb-4">O Ponto-Chave</h3>
+      {/* Seção: Por Que é Importante */}
+      <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border border-green-500/30 rounded-lg p-8">
+        <h3 className="text-2xl font-bold text-white mb-4">Por Que é Importante?</h3>
         <p className="text-gray-300 text-lg leading-relaxed mb-4">
-          Um <strong className="text-yellow-300">absolvedor perfeito é também o emissor mais perfeito</strong> possível. Se ele absorve toda a radiação que recebe, só pode manter a temperatura constante emitindo na mesma intensidade. Assim, ele não "polui" sua própria luz com reflexos, emitindo um espectro térmico puro e universal.
+          Ao estudar o corpo negro ideal, os físicos conseguem formular leis matemáticas que descrevem a radiação térmica de forma universal. Essas leis não dependem dos detalhes específicos de cada material.
         </p>
         <p className="text-gray-300 text-lg leading-relaxed">
-          <strong className="text-yellow-300">"Um absolvedor perfeito é também o emissor mais perfeito possível. Se ele absorve toda a radiação que recebe, só pode manter a temperatura constante emitindo na mesma intensidade. Assim, ele não 'polui' sua própria luz com reflexos, emitindo um espectro térmico puro e universal."</strong>
+          <strong className="text-green-300">"Um corpo negro é o melhor absorvedor e, portanto, também o melhor emissor. Qualquer tentativa de melhorar a absorção de radiação em qualquer frequência resultaria em uma redução da intensidade. Assim, ele não 'polui' sua própria luz com reflexos, emitindo um espectro térmico puro e universal."</strong>
         </p>
       </div>
 
