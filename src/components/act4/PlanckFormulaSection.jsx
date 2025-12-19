@@ -109,7 +109,7 @@ export function PlanckFormulaSection({ onNavigate }) {
           <div className="bg-black/40 border border-yellow-500/20 rounded-lg p-4">
             <h4 className="text-yellow-300 font-bold mb-2">A Constante de Planck</h4>
             <p className="text-gray-300 text-sm leading-relaxed">
-              A constante <Equation displayMode={false}>{String.raw`h \approx 6.626 \times 10^{-34} \text{ J·s}`}</Equation> é uma das constantes fundamentais da natureza. Ela define a escala em que os efeitos quânticos se tornam importantes. Para objetos macroscópicos, <Equation displayMode={false}>{String.raw`h\nu`}</Equation> é tão pequeno que a quantização é imperceptível. Mas para átomos e luz, é fundamental!
+              A constante <Equation displayMode={false}>{String.raw`h \approx 6.626 \times 10^{-34} \text{ J} \cdot \text{s}`}</Equation> é uma das constantes fundamentais da natureza. Ela define a escala em que os efeitos quânticos se tornam importantes. Para objetos macroscópicos, <Equation displayMode={false}>{String.raw`h\nu`}</Equation> é tão pequeno que a quantização é imperceptível. Mas para átomos e luz, é fundamental!
             </p>
           </div>
 
